@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Text;
-
-namespace Xamarin.Platform
+﻿namespace Xamarin.Platform
 {
 	public static class ButtonExtensions
 	{
