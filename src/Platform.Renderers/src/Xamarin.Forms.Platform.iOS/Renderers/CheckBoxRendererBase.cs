@@ -2,12 +2,14 @@ using System;
 using System.ComponentModel;
 using CoreGraphics;
 using UIKit;
+using Xamarin.Platform;
 
 namespace Xamarin.Forms.Platform.iOS
 {
 	public abstract class CheckBoxRendererBase<T> : ViewRenderer<CheckBox, T>
 		where T : FormsCheckBox
 	{
+		[PortHandler]
 		protected virtual float MinimumSize => 44f; // Apple docs
 		bool _disposed;
 
@@ -16,6 +18,7 @@ namespace Xamarin.Forms.Platform.iOS
 		{
 		}
 
+		[PortHandler("Moved to NativeCheckBox class")]
 		public override void LayoutSubviews()
 		{
 			base.LayoutSubviews();
@@ -37,6 +40,7 @@ namespace Xamarin.Forms.Platform.iOS
 			base.SetAccessibilityLabel();
 		}
 
+		[PortHandler]
 		public override CGSize SizeThatFits(CGSize size)
 		{
 			var result = base.SizeThatFits(size);
@@ -46,6 +50,7 @@ namespace Xamarin.Forms.Platform.iOS
 			return new CGSize(final, final);
 		}
 
+		[PortHandler]
 		public override SizeRequest GetDesiredSize(double widthConstraint, double heightConstraint)
 		{
 			var sizeConstraint = base.GetDesiredSize(widthConstraint, heightConstraint);
@@ -121,6 +126,7 @@ namespace Xamarin.Forms.Platform.iOS
 			base.OnElementChanged(e);
 		}
 
+		[PortHandler]
 		protected virtual void UpdateTintColor()
 		{
 			if (Element == null)
@@ -129,6 +135,7 @@ namespace Xamarin.Forms.Platform.iOS
 			Control.CheckBoxTintColor = Element.Color;
 		}
 
+		[PortHandler]
 		void OnControlCheckedChanged(object sender, EventArgs e)
 		{
 			Element.IsChecked = Control.IsChecked;

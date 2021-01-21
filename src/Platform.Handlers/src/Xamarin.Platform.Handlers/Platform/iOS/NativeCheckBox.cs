@@ -152,12 +152,6 @@ namespace Xamarin.Platform
 			return IsChecked ? Checked : Unchecked;
 		}
 
-		internal void UpdateDisplay()
-		{
-			SetImage(GetCheckBoximage(), UIControlState.Normal);
-			SetNeedsDisplay();
-		}
-
 		internal virtual UIBezierPath CreateBoxPath(CGRect backgroundRect) => UIBezierPath.FromOval(backgroundRect);
 		internal virtual UIBezierPath CreateCheckPath() => new UIBezierPath
 		{
@@ -234,6 +228,22 @@ namespace Xamarin.Platform
 			return img;
 		}
 
+		public override CGSize SizeThatFits(CGSize size)
+		{
+			var result = base.SizeThatFits(size);
+			var height = Math.Max(MinimumViewSize, result.Height);
+			var width = Math.Max(MinimumViewSize, result.Width);
+			var final = Math.Min(width, height);
+
+			return new CGSize(final, final);
+		}
+
+		public override void LayoutSubviews()
+		{
+			base.LayoutSubviews();
+			UpdateDisplay();
+		}
+
 		protected override void Dispose(bool disposing)
 		{
 			if (_disposed)
@@ -244,6 +254,12 @@ namespace Xamarin.Platform
 				TouchUpInside -= OnTouchUpInside;
 
 			base.Dispose(disposing);
+		}
+
+		void UpdateDisplay()
+		{
+			SetImage(GetCheckBoximage(), UIControlState.Normal);
+			SetNeedsDisplay();
 		}
 	}
 }

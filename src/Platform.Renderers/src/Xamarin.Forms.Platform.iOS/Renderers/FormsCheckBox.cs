@@ -1,9 +1,11 @@
 ﻿using System;
 using CoreGraphics;
 using UIKit;
+using Xamarin.Platform;
 
 namespace Xamarin.Forms.Platform.iOS
 {
+	[PortHandler]
 	public class FormsCheckBox : UIButton
 	{
 		static UIImage _checked;
