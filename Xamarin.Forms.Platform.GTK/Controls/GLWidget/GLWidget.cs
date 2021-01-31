@@ -124,6 +124,7 @@ namespace OpenTK.GLWidget
 		/// <summary>
 		/// Destroys this <see cref="Widget"/>, disposing it and destroying it in the context of GTK.
 		/// </summary>
+		[Obsolete("Use Dispose")]
 		public override void Destroy()
 		{
 			GC.SuppressFinalize(this);

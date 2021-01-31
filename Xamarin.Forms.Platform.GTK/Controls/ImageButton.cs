@@ -97,6 +97,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			RecreateContainer();
 		}
 
+		[Obsolete("Use Dispose")]
 		public override void Destroy()
 		{
 			base.Destroy();

@@ -51,6 +51,7 @@ namespace Xamarin.Forms.Platform.GTK.Cells
 			return request.Request.Height;
 		}
 
+		[Obsolete("Use Dispose")]
 		public override void Destroy()
 		{
 			IVisualElementRenderer renderer;
