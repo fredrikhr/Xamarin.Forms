@@ -139,6 +139,7 @@ namespace Xamarin.Forms.Platform.GTK
 			UpdateIsVisible();
 		}
 
+		[Obsolete("Use Dispose")]
 		public override void Destroy()
 		{
 			base.Destroy();
@@ -208,7 +209,7 @@ namespace Xamarin.Forms.Platform.GTK
 			UpdateSensitive();
 		}
 
-		protected virtual void Dispose(bool disposing)
+		protected override void Dispose(bool disposing)
 		{
 			if (!disposing || _disposed)
 				return;

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <LangVersion>8.0</LangVersion>
-    <TargetFrameworks>net47;netstandard2.0;net5.0</TargetFrameworks>
+    <TargetFrameworks>net47;net5.0-windows</TargetFrameworks>
     <RootNamespace>Xamarin.Forms.Platform.GTK</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>

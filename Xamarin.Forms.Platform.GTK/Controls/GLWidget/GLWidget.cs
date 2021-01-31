@@ -137,19 +137,7 @@ namespace OpenTK.GLWidget
 		/// Disposes the current object, releasing any native resources it was using.
 		/// </summary>
 		/// <param name="disposing"></param>
-		public override void Dispose()
-		{
-			GC.SuppressFinalize(this);
-			Dispose(true);
-
-			base.Dispose();
-		}
-
-		/// <summary>
-		/// Disposes the current object, releasing any native resources it was using.
-		/// </summary>
-		/// <param name="disposing"></param>
-		public virtual void Dispose(bool disposing)
+		protected override void Dispose(bool disposing)
 		{
 			if (disposing)
 			{
